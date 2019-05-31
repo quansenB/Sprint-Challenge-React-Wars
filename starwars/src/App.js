@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
 class App extends Component {
   constructor() {
@@ -10,7 +10,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getCharacters('https://swapi.co/api/people/');
+    this.getCharacters("https://swapi.co/api/people/");
   }
 
   getCharacters = URL => {
@@ -29,10 +29,29 @@ class App extends Component {
       });
   };
 
+  renderCharacters() {
+    return this.state.starwarsChars.map(character => {
+      return (
+        <div className="character">
+          <div className="characterName">Name: {character.name}</div>
+          <div>Birth Year: {character.birth_year}</div>
+          {/* <div>Species: {character.species[0].name}</div> */}
+          {/* <div>Species: {JSON.parse(character.species[0]).name}</div> */}
+          <div>Height: {character.height}</div>
+          <div>Weight: {character.mass}</div>
+          <div>Eyecolor: {character.eye_color}</div>
+          <div>Skincolor: {character.skin_color}</div>
+          <div>Appearances: {character.films.length}</div>
+        </div>
+      );
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
+        <div className="charactersContainer">{this.renderCharacters()}</div>
       </div>
     );
   }
