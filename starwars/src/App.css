@@ -6,3 +6,34 @@
   text-shadow: 1px 1px 5px #fff;
 }
 /* write your parent styles in here for your App.js */
+.charactersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.character {
+  color: navy;
+  border: 0.1rem black solid;
+  border-radius: 1rem;
+  margin: 2rem;
+  padding: 1rem;
+  min-width: 240px;
+  background: rgba(102, 102, 84, 0.5);
+}
+
+.characterName {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+button{
+  color: black;
+  border: 0.1rem black solid;
+  border-radius: 1rem;
+  margin: 2rem;
+  padding: 1rem;
+  min-width: 240px;
+  background: rgba(102, 102, 84, 0.3);
+}
