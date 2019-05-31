@@ -2,15 +2,18 @@ import React, { Component } from "react";
 import "./App.css";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      starwarsChars: []
+      starwarsChars: [],
+      current: "https://swapi.co/api/people/?page=1",
+      next: null,
+      prev: null
     };
   }
 
   componentDidMount() {
-    this.getCharacters("https://swapi.co/api/people/");
+    this.getCharacters(this.state.current);
   }
 
   getCharacters = URL => {
@@ -23,6 +26,9 @@ class App extends Component {
       })
       .then(data => {
         this.setState({ starwarsChars: data.results });
+        this.setState({ current: URL });
+        this.setState({ next: data.next });
+        this.setState({ prev: data.previous });
       })
       .catch(err => {
         throw new Error(err);
@@ -35,8 +41,7 @@ class App extends Component {
         <div className="character">
           <div className="characterName">Name: {character.name}</div>
           <div>Birth Year: {character.birth_year}</div>
-          {/* <div>Species: {character.species[0].name}</div> */}
-          {/* <div>Species: {JSON.parse(character.species[0]).name}</div> */}
+          {/* <div>Species: {JSON.parse(character.species[0]).name}</div>  Attempted to have endpoints */}
           <div>Height: {character.height}</div>
           <div>Weight: {character.mass}</div>
           <div>Eyecolor: {character.eye_color}</div>
@@ -51,6 +56,14 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
+        <div>
+          <button className="prevBtn" onClick={this.prevPage}>
+            Previous Page
+          </button>
+          <button className="nextBtn" onClick={this.nextPage}>
+            Next Page
+          </button>
+        </div>
         <div className="charactersContainer">{this.renderCharacters()}</div>
       </div>
     );

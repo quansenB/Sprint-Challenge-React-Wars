@@ -27,3 +27,13 @@
   font-weight: 600;
   margin-bottom: 0.4rem;
 }
+
+button{
+  color: black;
+  border: 0.1rem black solid;
+  border-radius: 1rem;
+  margin: 2rem;
+  padding: 1rem;
+  min-width: 240px;
+  background: rgba(102, 102, 84, 0.3);
+}
