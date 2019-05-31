@@ -26,11 +26,19 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
+React aims to make front end development easy. It outsources the rendering to the client and the server just provides the data. It    enables web apps that are changing their state ften. Only the difference is rerendered, which enables quick and feature rich web apps.
+    
 - [ ] What does it mean to _think_ in react?
+
+THinking in react means, breaking the app down to components, then build a static version of the app and only then implement the state changes and its UI change representations
 
 - [ ] Describe state.
 
+State refers to how the app currently is. It can be modified and the current display is rendered based on its values.
+
 - [ ] Describe props.
+
+Whenever I create a react element I can pass down what is called props. I can then use these props in the constructor or elsewhere in th subcomponent.
 
 ## Project Set Up
 
